@@ -1,0 +1,17 @@
+﻿@using PsychologicalTestWithBlazor.Components.Models
+
+<PageTitle>PsychoTest</PageTitle>
+
+@if (Choices?.Questions != null)
+{
+    <QuestionsFormComponent Choices="@Choices" OnSubmit="@OnSubmit" />
+}
+else
+{
+    <p>Loading questions...</p>
+}
+
+@code {
+    [Parameter] public Сhoices Choices { get; set; }
+    [Parameter] public EventCallback OnSubmit { get; set; }
+}

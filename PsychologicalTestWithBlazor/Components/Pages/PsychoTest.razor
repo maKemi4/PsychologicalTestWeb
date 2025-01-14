@@ -1,0 +1,29 @@
+﻿@page "/PsychoTest"
+@using PsychologicalTestWithBlazor.Components.Models
+@using PsychologicalTestWithBlazor.Components.Services.Abstractions
+@using PsychologicalTestWithBlazor.Components.Pages.PagesComponents.PsychoTestPageComponents
+@inject NavigationManager Navigation
+@inject ILoadQuestionsFromFileService LoadQuestionsFromFileService
+@inject ICalculateTotalChoiceValueService CalculateTotalChoiceValueService
+@rendermode InteractiveServer
+
+<PageInitialization Choices="@choices" OnSubmit="SubmitAnswers" />
+
+@code {
+    private Сhoices choices;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var questions = await LoadQuestionsFromFileService.LoadQuestions("wwwroot/PsychoTestQuestions.txt");
+        choices = new Сhoices
+            {
+                Questions = questions,
+            };
+    }
+
+    void SubmitAnswers()
+    {
+        int totalChoiceValue = CalculateTotalChoiceValueService.Calculate(choices);
+        Navigation.NavigateTo($"/result/{totalChoiceValue}");
+    }
+}

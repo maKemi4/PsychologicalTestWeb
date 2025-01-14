@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject NavigationManager navManager
+@rendermode InteractiveServer
+@using PsychologicalTestWithBlazor.Components.Pages.PagesComponents.HomePageComponents
+
+
+<PageTitle>Home</PageTitle>
+<PageInitialization />
+<button @onclick="StartTest" class="btn btn-primary">Start the test</button>
+
+@code {
+    private void StartTest()
+    {
+        navManager.NavigateTo("/PsychoTest");
+    }
+}

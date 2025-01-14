@@ -1,0 +1,21 @@
+﻿@using PsychologicalTestWithBlazor.Components.Models
+
+<div class="question-container">
+    <p style="font-size:2vw">@Question.Id. @Question.Text</p>
+    <div class="answers-container">
+        <InputRadioGroup @bind-Value="Question.SelectedAnswerId" Name="@($"question_{Question.Id}")">
+            @foreach (var answer in Question.Answers)
+            {
+                <div class="answer">
+                    <InputRadio Value="@answer.Id" id="@($"answer-{answer.Id}")" />
+                    <label for="@($"answer-{Question.Id}-{answer.Id}")">@answer.Text</label>
+                </div>
+            }
+        </InputRadioGroup>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Question Question { get; set; }
+}
