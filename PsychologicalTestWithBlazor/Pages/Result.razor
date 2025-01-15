@@ -1,0 +1,25 @@
+﻿@page "/result/{TotalChoiceValue:int}"
+@using PsychologicalTestWithBlazor.Models
+@using PsychologicalTestWithBlazor.Services.Abstractions
+@using PsychologicalTestWithBlazor.Components
+@inject IDefinePsychotypeService DefinePsychotypeService
+
+<ResultForm TotalChoiceValue="@TotalChoiceValue"
+            Psychotype="@_definition.Psychotype"
+            Info="@_definition.Info"
+            Recommendations="@_definition.Recommendations" />
+
+@code {
+    [Parameter] public int TotalChoiceValue { get; set; }
+    public PchyhotypeDefinition _definition;
+
+    protected override void OnInitialized()
+    {
+        _definition = DefinePsychotype();
+    }
+
+    private PchyhotypeDefinition DefinePsychotype()
+    {
+        return DefinePsychotypeService.Define(TotalChoiceValue);
+    }
+}

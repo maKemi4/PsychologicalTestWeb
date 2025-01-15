@@ -1,4 +1,4 @@
-﻿namespace PsychologicalTestWithBlazor.Components.Models
+﻿namespace PsychologicalTestWithBlazor.Models
 {
     public static class AnswerOptions
     {

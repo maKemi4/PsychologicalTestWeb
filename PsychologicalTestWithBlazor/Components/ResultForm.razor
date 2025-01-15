@@ -1,0 +1,13 @@
+﻿﻿<h3 style="font-size: 25px"><b><i><center>Results</center></i></b></h3>
+<br />
+<p style="font-size: 21px"><b>Score: </b>@TotalChoiceValue psychopoints)</p>
+<p style="font-size: 21px"><b>You are most likely to have: </b>@Psychotype</p>
+<p style="font-size: 21px"><b>Description:</b> @Info</p>
+<p style="font-size: 21px"><b>Recommendations:</b> @Recommendations</p>
+
+@code {
+    [Parameter] public int TotalChoiceValue { get; set; }
+    [Parameter] public string Psychotype { get; set; }
+    [Parameter] public string Info { get; set; }
+    [Parameter] public string Recommendations { get; set; }
+}

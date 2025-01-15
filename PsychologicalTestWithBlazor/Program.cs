@@ -1,6 +1,6 @@
-using PsychologicalTestWithBlazor.Components;
-using PsychologicalTestWithBlazor.Components.Services;
-using PsychologicalTestWithBlazor.Components.Services.Abstractions;
+using PsychologicalTestWithBlazor;
+using PsychologicalTestWithBlazor.Services;
+using PsychologicalTestWithBlazor.Services.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 

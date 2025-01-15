@@ -1,0 +1,23 @@
+﻿@using PsychologicalTestWithBlazor.Models
+
+<PageTitle>PsychoTest</PageTitle>
+
+@if (Choices?.Questions != null)
+{
+    <EditForm Model="@Choices" OnSubmit="@OnSubmit" FormName="PsychoTestForm">
+        @foreach (var question in Choices.Questions)
+        {
+            <QuestionItem Question="@question" />
+        }
+        <button type="submit" class="btn btn-primary" style="margin-bottom:30px">Submit</button>
+    </EditForm>
+}
+else
+{
+    <p>Loading questions...</p>
+}
+
+@code {
+    [Parameter] public Сhoices Choices { get; set; }
+    [Parameter] public EventCallback OnSubmit { get; set; }
+}

@@ -1,4 +1,10 @@
-﻿<div class="container">
+﻿@page "/"
+@inject NavigationManager NavManager
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<div class="container">
     <h1>Welcome to the Depression Test</h1>
     <p>This is your path to self-discovery and growth!</p>
     <div>
@@ -21,4 +27,12 @@
         </p>
     </div>
     <br />
+    <button @onclick="StartTest" class="btn btn-primary">Start the test</button>
 </div>
+
+@code {
+    private void StartTest()
+    {
+        NavManager.NavigateTo("/PsychoTest");
+    }
+}
